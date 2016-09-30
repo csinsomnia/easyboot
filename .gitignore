@@ -1,0 +1,33 @@
+# maven ignore
+target/
+*.jar
+*.war
+*.zip
+*.tar
+*.tar.gz
+
+# eclipse ignore
+.settings/
+.project
+.classpath
+.springBeans
+
+# idea ignore
+.idea/
+*.ipr
+*.iml
+*.iws
+
+# temp ignore
+*.log
+*.cache
+*.diff
+*.patch
+*.tmp
+
+# system ignore
+.DS_Store
+Thumbs.db
+
+/xplat-data/xplat-data-mybatis-xml/*.factorypath
+!/UserMannul/ying_yong_jian_kong_men_hu_shi_yong_shou_ce/_book.zip

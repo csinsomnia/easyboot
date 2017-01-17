@@ -34,5 +34,10 @@ public class AppTest
     public void testApp()
     {
         assertTrue( true );
+        String url ="/*;/app/mo;/*.jsp";
+        for(String string :url.split(";")) {
+            System.out.println(string);
+            System.out.println("*");
+        }
     }
 }

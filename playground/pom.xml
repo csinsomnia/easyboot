@@ -8,9 +8,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>io.keyell.easyboot</groupId>
     <artifactId>playground</artifactId>
-    <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>playground</name>
@@ -21,6 +19,14 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security.oauth</groupId>
+            <artifactId>spring-security-oauth2</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>

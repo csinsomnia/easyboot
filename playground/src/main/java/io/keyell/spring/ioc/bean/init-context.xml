@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="b1" name="b1" class="io.keyell.spring.ioc.bean.UserBean">
+        <!-- 错误示范: <property name="name"> 黄可</property>-->
+        <property name="name" value="黄可"/>
+        <property name="age" value="32"/>
+    </bean>
+
+    <bean id="b2" class="io.keyell.spring.ioc.bean.UserBean">
+        <constructor-arg name="name" value="吴芳芳"/>
+        <constructor-arg name="age" value="32"/>
+    </bean>
+
+    <bean id="b3" class="io.keyell.spring.ioc.bean.UserBean">
+        <constructor-arg value="黄岚"/>
+        <constructor-arg value="3"/>
+    </bean>
+</beans>

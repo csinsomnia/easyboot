@@ -4,6 +4,8 @@ package io.keyell.ddd.model;
  * 失血模型：模型仅仅包含数据的定义和getter/setter方法，业务逻辑和应用逻辑都放到服务层中。
  * 这种类在java中叫POJO，在.NET中叫POCO
  *
+ * (anaemic domain model)&充血模型(rich domain model)
+ *
  * 以用户对象 User 为例
  *
  * @author huangke 创建于 2019-09-01

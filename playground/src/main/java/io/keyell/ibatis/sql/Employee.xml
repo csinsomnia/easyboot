@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+        PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+        "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="Employee">
+    <insert id="insert" parameterClass="io.keyell.ibatis.domain.Employee">
+        insert into EMPLOYEE(first_name, last_name, salary)
+        values (#first_name#, #last_name#, #salary#)
+        <selectKey resultClass="int" keyProperty="id">
+            select last_insert_id() as id
+        </selectKey>
+    </insert>
+
+
+    <insert id="insertSomeFields">
+        insert into EMPLOYEE(first_name, last_name, salary)
+        values (#first_name#, #last_name#, #salary#)
+        <selectKey resultClass="int" keyProperty="id">
+            select last_insert_id() as id
+        </selectKey>
+    </insert>
+
+
+    <insert id="insertWithNull">
+        insert into EMPLOYEE(first_name, last_name, salary)
+        values (#first_name:VARCHAR:MIKE#, #last_name#, #salary#)
+        <selectKey resultClass="int" keyProperty="id">
+            select last_insert_id() as id
+        </selectKey>
+    </insert>
+
+    <insert id="insertAllFields">
+        insert into EMPLOYEE
+        values (#id#,#first_name:VARCHAR:MIKE#, #last_name#, #salary#)
+
+    </insert>
+
+
+    <select id="getAll" resultClass="io.keyell.ibatis.domain.Employee">
+        SELECT * FROM EMPLOYEE
+    </select>
+
+    <update id="update" parameterClass="io.keyell.ibatis.domain.Employee">
+    UPDATE EMPLOYEE
+    SET first_name = #first_name#
+    WHERE id = #id#
+    </update>
+
+    <delete id="delete" parameterClass="int">
+                DELETE FROM EMPLOYEE
+        WHERE id = #id#
+</delete>
+
+
+    <!-- Using ResultMap -->
+    <resultMap id="result" class="io.keyell.ibatis.domain.Employee">
+        <result property="id" column="id"/>
+        <result property="first_name" column="first_name"/>
+        <result property="salary" column="salary"/>
+    </resultMap>
+
+    <select id="useResultMap" resultMap="result">
+SELECT * FROM EMPLOYEE
+WHERE id=#id#
+</select>
+
+    <parameterMap id="getEmpInfoCall" class="map">
+        <parameter property="acctID" jdbcType="INT"
+                   javaType="java.lang.Integer" mode="IN"/>
+    </parameterMap>
+
+    <!-- To call stored procedure. -->
+    <procedure id="getEmpInfo" resultClass="io.keyell.ibatis.domain.Employee"
+               parameterMap="getEmpInfoCall">
+        call getEmp(?)
+    </procedure>
+
+
+    <select id="useParameterMap" parameterMap="getEmpInfoCall" resultMap="result">
+SELECT * FROM EMPLOYEE
+WHERE id=#acctID#
+</select>
+
+</sqlMap>

@@ -1,4 +1,4 @@
-package io.keyell.easyboot.lang.keywords;
+package io.keyell.lang.keywords;
 
 /**
  * final 关键字的理解

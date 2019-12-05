@@ -1,6 +1,5 @@
 package io.keyell.easyboot;
 
-import io.keyell.easyboot.domain.Customer;
 import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,15 +8,9 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.security.oauth2.config.annotation.web.configuration.EnableOAuth2Client;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "io.keyell.easyboot")
 @MapperScan("io.keyell.easyboot.mapper")
 @EnableWebMvc
 //@EnableOAuth2Client

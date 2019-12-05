@@ -10,10 +10,6 @@ spring:
   profiles: develop
   session:
     store-type: none
-  thymeleaf:
-      mode: HTML5
-      cache: false
-
 #datasource:
 #    url: jdbc:p6spy:mysql://127.0.0.1:3306/crown1?characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false
 #    username: root
@@ -64,6 +60,7 @@ logging:
   level:
     org.springframework.web: DEBUG
     io.keyell.easyboot.mapper: DEBUG
+    io.keyell.easyboot: DEBUG
   path: /logs
 
 server:

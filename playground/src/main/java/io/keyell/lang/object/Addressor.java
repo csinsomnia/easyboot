@@ -1,4 +1,4 @@
-package io.keyell.easyboot.lang.object;
+package io.keyell.lang.object;
 
 import sun.misc.Unsafe;
 

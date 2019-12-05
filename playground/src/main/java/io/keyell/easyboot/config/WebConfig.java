@@ -1,5 +1,8 @@
 package io.keyell.easyboot.config;
 
+import io.keyell.easyboot.filter.OneFilter;
+import io.keyell.easyboot.filter.TwoFilter;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -9,6 +12,8 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+
+import javax.servlet.FilterRegistration;
 
 /**
  * @author huangke 创建于 2019/2/26
@@ -43,5 +48,49 @@ public class WebConfig implements WebMvcConfigurer {
             DefaultServletHandlerConfigurer configurer) {
         configurer.enable();
     }
+
+
+    @Bean
+    public OneFilter doOne() {
+        return new OneFilter();
+    }
+
+    @Bean
+    public TwoFilter doTwo() {
+        return new TwoFilter();
+    }
+
+    @Bean
+    public FilterRegistrationBean<OneFilter> registerOneFilter(OneFilter oneFilter) {
+        FilterRegistrationBean<OneFilter> registrationBean = new FilterRegistrationBean<>(oneFilter);
+
+        // TODO javax.servlet.FilterRegistration
+        registrationBean.addInitParameter("p1", "HK");
+        registrationBean.addInitParameter("p2", "FF");
+
+        registrationBean.addUrlPatterns("/*");
+
+        return registrationBean;
+
+
+    }
+
+    @Bean
+    public FilterRegistrationBean<TwoFilter> registerOneFilter() {
+        FilterRegistrationBean<TwoFilter> registrationBean = new FilterRegistrationBean<>();
+        registrationBean.setFilter(doTwo());
+
+        // TODO javax.servlet.FilterRegistration
+        registrationBean.addInitParameter("p1", "HK2");
+        registrationBean.addInitParameter("p2", "FF2");
+
+        registrationBean.addUrlPatterns("/*");
+
+        return registrationBean;
+
+
+    }
+
+
 
 }

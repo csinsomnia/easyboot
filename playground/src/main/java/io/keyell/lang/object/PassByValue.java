@@ -1,4 +1,4 @@
-package io.keyell.easyboot.lang.object;
+package io.keyell.lang.object;
 
 /**
  * 方法参数传递 pass by value 指针

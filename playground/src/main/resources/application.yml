@@ -54,6 +54,10 @@ spring:
   output:
     ansi:
       enabled: ALWAYS
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
 
 
 logging:

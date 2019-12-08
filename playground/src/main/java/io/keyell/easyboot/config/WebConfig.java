@@ -26,7 +26,11 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
+
+        // 不写controller 指定一些页面的跳转逻辑
         registry.addViewController("/").setViewName("home");
+        registry.addViewController("/loginpage").setViewName("login");
+        registry.addViewController("/loginx").setViewName("loginx");
     }
 
     @Bean
